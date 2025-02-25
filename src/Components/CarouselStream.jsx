@@ -1,60 +1,45 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-multi-carousel/lib/styles.css';
 import { Carousel } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import StreamServices from '../Services/StreamServices';
 
-const CarouselStream = () => {
+function CarouselStream() {
+    const [streamers, setStreamers] = useState([])
 
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
+
+    const fecthStreamers = async () => {
+        try {
+            const response = await StreamServices.fetchStreamers()
+            setStreamers(response.data.data)
+        } catch (error) {
+            console.error(error)
+        }
     }
-  };
+
+    useEffect(() => {
+        fecthStreamers()
+    }, [])
 
 
+    return (
 
-  return <>
-    <Carousel
-    >
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400"
-          alt="First slide"
-        />
-      </Carousel.Item>
+        <Carousel
+            prevIcon={<span className="carousel-control-prev-icon" aria-hidden="true" />}
+            nextIcon={<span className="carousel-control-next-icon" aria-hidden="true" />}
+        >
 
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400"
-          alt="Second slide"
-        />
-      </Carousel.Item>
+            {streamers && streamers.map((streamer, index) => {
+                return <Carousel.Item key={index}>
+                    <h2>{streamer.user_name}</h2>
+                    <img  className="d-block w-50" src={streamer.thumbnail_url.replace("{width}x{height}", "450x300")} alt="" />
+                </Carousel.Item>
+            })
 
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400"
-          alt="Third slide"
-        />
-      </Carousel.Item>
+            }
 
-    </Carousel>
-  </>;
+        </Carousel>
+    );
 }
 
 export default CarouselStream;

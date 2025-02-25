@@ -9,26 +9,24 @@ const NavBar = () => {
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <Navbar bg='black' variant='dark' expand='lg' expanded={expanded}>
+        <Navbar expand='lg' expanded={expanded}>
             <Container fluid>
                 <Navbar.Brand onClick={() => navigate('/')}>TWITCH</Navbar.Brand>
-
                 <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
-                <Navbar.Collapse id='basic-navbar-nav'>
+                <Navbar.Collapse id='basic-navbar-nav' className="justify-content-start">
 
-                    <Nav className='me-auto'>
-                        <Nav.Link onClick={() => { navigate('/browse'); setExpanded(false); }}>Browse</Nav.Link>
-                        <FaCompass size={18} className="me-2" /> Browse
+                    <Nav className=''>
+                        <Nav.Link onClick={() => { navigate('/games'); setExpanded(false); }}>Jeux</Nav.Link>
                     </Nav>
 
-                    <Form className="d-flex mx-auto">
-                        <FormControl type="search" placeholder="Search" className="searchBar" />
+                    <Form className="d-flex mx-auto col-5 gap-2 justify-content-center">
+                        <FormControl type="search" placeholder="Search" className="searchBar col-12" />
                         <Button>
                             <FaSearch />
                         </Button>
                     </Form>
 
-                    <Nav>
+                    <Nav className="ml-auto">
                         <Nav.Link href="#">
                             <FaBell size={20} />
                         </Nav.Link>

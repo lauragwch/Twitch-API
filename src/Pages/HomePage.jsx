@@ -25,13 +25,8 @@ const HomePage = () => {
     }, [])
 
     return <>
-        <Container>
-
-            <h1>HomePage</h1>
-
+        <Container className="mt-4 d-flex justify-content-center">
             <CarouselStream/>
-
-
         </Container>
     </>;
 }

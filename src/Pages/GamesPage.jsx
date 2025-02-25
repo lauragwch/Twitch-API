@@ -22,9 +22,7 @@ const GamesPage = () => {
     }, [])
 
     return <>
-        <Container>
-            <h1>Games:</h1>
-            
+        <Container className="mt-4">
             <div className="d-flex flex-wrap justify-content-center gap-2">
                 {games && games.map((game, index) => {
                     return <GameCard key={index} game={game} />

@@ -38,8 +38,8 @@ function CarouselStream() {
 
             }
 
-    </Carousel>
-  );
+        </Carousel>
+    );
 }
 
 export default CarouselStream;

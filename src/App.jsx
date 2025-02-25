@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import GamesPage from './Pages/GamesPage';
 import NavBar from './Components/NavBar';
+import SideMenu from './Components/SideMenu';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
+        <SideMenu />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/games" element={<GamesPage />}/>

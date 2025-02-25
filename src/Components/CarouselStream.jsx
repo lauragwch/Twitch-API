@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-multi-carousel/lib/styles.css';
 import { Carousel } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import StreamServices from '../Services/StreamServices';

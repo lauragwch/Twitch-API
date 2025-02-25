@@ -1,8 +1,8 @@
 import { Container } from "react-bootstrap";
-import TestServices from "../Services/StreamServices";
 import { useEffect, useState } from "react";
 import StreamServices from "../Services/StreamServices";
 import GameServices from "../Services/GameServices";
+import 'react-multi-carousel/lib/styles.css';
 import CarouselStream from "../Components/CarouselStream";
 
 const HomePage = () => {

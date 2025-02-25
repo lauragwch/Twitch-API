@@ -5,6 +5,7 @@ import HomePage from './Pages/HomePage';
 import GamesPage from './Pages/GamesPage';
 import NavBar from './Components/NavBar';
 
+
 function App() {
 
   return (

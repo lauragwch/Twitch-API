@@ -38,7 +38,7 @@ const StreamerPage = () => {
 
     useEffect(() => {
         fetchStreamerByUserLogin()
-    }, [])
+    }, [id])
 
     return <>
         <Container className="mt-4">

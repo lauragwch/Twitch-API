@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './SideMenu.css';
 
 const SideMenu = () => {
-    const [isExpanded, setIsExpanded] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     const toggleMenu = () => {
         setIsExpanded(!isExpanded);

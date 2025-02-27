@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import HomePage from './Pages/HomePage';
 import GamesPage from './Pages/GamesPage';
 import NavBar from './Components/NavBar';
@@ -10,11 +11,13 @@ import StreamerPage from './Pages/StreamerPage';
 
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+
 
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        <NavBar onSearch={setSearchQuery}/>
         <SideMenu />
         <Routes>
           <Route path="/" element={<HomePage />} />

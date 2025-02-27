@@ -5,8 +5,9 @@ import GameServices from "../Services/GameServices";
 import 'react-multi-carousel/lib/styles.css';
 import CarouselStream from "../Components/CarouselStream";
 
-const HomePage = () => {
-    const [streamers, setStreamers] = useState([])
+const HomePage = ({ searchQuery }) => {
+    const [streamers, setStreamers] = useState([]);
+    const [filteredStreamers, setFilteredStreamers] = useState([]);
 
     const fecthStreamers = async () => {
         try {
@@ -24,9 +25,10 @@ const HomePage = () => {
         fecthStreamers()
     }, [])
 
+
     return <>
         <Container className="mt-4 d-flex justify-content-center">
-            <CarouselStream/>
+            <CarouselStream />
         </Container>
     </>;
 }

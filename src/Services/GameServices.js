@@ -1,6 +1,5 @@
 import axios from "axios";
 import { TOKEN } from "../config";
-import { TOKEN } from "../config";
 
 function fetchGames() {
     return axios.get("https://api.twitch.tv/helix/games/top?first=100", {

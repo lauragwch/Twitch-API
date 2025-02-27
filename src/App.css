@@ -2,6 +2,7 @@
 
 
 body {
+    margin-left: 60px;
     background-color: #181818;
     font-family: Poppins;
 }
@@ -57,11 +58,14 @@ nav {
 }
 
 p,
+h3,
 h2,
 h1,
 label,
 li {
     color: #C7C7C7;
+    margin: 0px;
+    padding: 0px;
 }
 
 .btn-primary {

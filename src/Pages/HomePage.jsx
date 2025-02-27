@@ -13,8 +13,6 @@ const HomePage = ({ searchQuery }) => {
         try {
             const response = await StreamServices.fetchStreamers()
             const responseBis = await GameServices.fetchGames()
-            console.log(responseBis)
-            // console.log(response.data.data)
             setStreamers(response.data.data)
         } catch (error) {
             console.error(error)

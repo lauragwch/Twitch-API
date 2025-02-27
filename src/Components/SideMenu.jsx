@@ -6,7 +6,7 @@ import FollowedStreamsService from '../Services/FollowedStreamsService';
 const userId = '';
 
 const SideMenu = () => {
-    const [isExpanded, setIsExpanded] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
     const [followedStreams, setFollowedStreams] = useState([]);
 
     const toggleMenu = () => {

@@ -7,6 +7,7 @@ import NavBar from './Components/NavBar';
 import SideMenu from './Components/SideMenu';
 import GamePage from './Pages/GamePage';
 import StreamerPage from './Pages/StreamerPage';
+import VideoPage from './Pages/VideoPage';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/games" element={<GamesPage />}/>
           <Route path="/game/:id" element={<GamePage />}/>
           <Route path="/streamer/:id" element={<StreamerPage />}/>
+          <Route path="/video/:id/:videoId" element={<VideoPage />}/>
         </Routes>
       </BrowserRouter>
     </>

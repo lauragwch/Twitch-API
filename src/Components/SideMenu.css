@@ -1,0 +1,73 @@
+.side-menu {
+    width: 200px;
+    height: 100vh;
+    background-color: #18181b;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 60px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.side-menu.collapsed {
+    width: 60px;
+}
+
+.toggle-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 16px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.toggle-button:hover {
+    transform: scale(1.1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    transition: background 0.2s;
+}
+
+li:hover {
+    background: #772ce8;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.icon {
+    font-size: 24px;
+    width: 30px;
+    text-align: center;
+}
+
+/* Cache le texte quand le menu est réduit */
+.side-menu.collapsed a span {
+    display: none;
+}
+
+

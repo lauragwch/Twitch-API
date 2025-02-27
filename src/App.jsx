@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import GamesPage from './Pages/GamesPage';
 import NavBar from './Components/NavBar';
+import SideMenu from './Components/SideMenu';
 import GamePage from './Pages/GamePage';
 import StreamerPage from './Pages/StreamerPage';
 
@@ -14,6 +15,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
+        <SideMenu />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/games" element={<GamesPage />}/>

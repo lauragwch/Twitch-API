@@ -28,7 +28,7 @@ const NavBar = () => {
             response.data.data.map(stream => {
 
                 // Je push dans le tableau lesquelles des valeurs recupérées je veux afficher
-                optionsTab.push({ value: stream.user_name, label: stream.user_name });
+                optionsTab.push({ value: stream.user_login, label: stream.user_name });
             });
 
             // Je lui dis que le tableau que je viens de creer est celui que je veux afficher donc options = optionsTab;
@@ -57,7 +57,7 @@ const NavBar = () => {
 
     const handleSelectChange = (selectedOption) => {
         if (selectedOption) {
-            navigate("/streamer/" + streamers.user_login);
+            navigate("/streamer/" + selectedOption.value);
         }
     };
 

@@ -9,7 +9,7 @@ const GamesPage = () => {
 
     const fetchGames = async () => {
         try {
-            const response = await GameServices.fetchGames()
+            const response = await GameServices.fetchTopGames()
             setGames(response.data.data)
         } catch (error) {
             console.error(error)

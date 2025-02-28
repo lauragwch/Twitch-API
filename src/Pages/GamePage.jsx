@@ -34,7 +34,7 @@ const GamePage = () => {
                     if (streamer.language == "fr")
                     return <StreamerCard key={index} streamer={streamer} />
                 })}
-                <h2 style={{width: "100%"}}>Toutes les chaines</h2>
+                <h2 className="pb-2 pt-4" style={{width: "100%"}}>Toutes les chaines</h2>
                 {streamers && streamers.map((streamer, index) => {
                     return <StreamerCard key={index} streamer={streamer} />
                 })}

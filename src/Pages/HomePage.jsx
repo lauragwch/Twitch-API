@@ -25,7 +25,7 @@ const HomePage = ({ searchQuery }) => {
 
 
     return <>
-        <Container className="mt-4 d-flex justify-content-center">
+        <Container className="mt-2 d-flex justify-content-center">
             <CarouselStream />
         </Container>
     </>;

@@ -2,7 +2,8 @@
 
 
 body {
-    margin-left: 60px;
+    /* margin-left: 60px; */
+    padding-top: 60px;
     background-color: #181818;
     font-family: Poppins;
 }
@@ -38,6 +39,12 @@ nav {
 
 }
 
+.css-13cymwt-control {
+    background-color: #202020c9;
+    border: 1px solid #444;
+    color: #C7C7C7;
+}
+
 .form-control,
 .form-control:focus {
     background-color: #202020;
@@ -58,6 +65,7 @@ nav {
 }
 
 p,
+h4,
 h3,
 h2,
 h1,
@@ -82,4 +90,28 @@ li {
 .btn-primary:active {
     background-color: rgba(255, 192, 203, 0) !important;
     border: 1px solid #8f8f8f !important;
+}
+
+.carousel-indicators {
+    display: none;
+}
+
+.navbar-toggler {
+    border: 1px solid #444;
+}
+
+@media only screen and (min-width: 769px) {
+    .streamerPage {
+        width: calc(100vw - 315px) !important;
+        /* width: "calc(100vw - 315px)" !important; */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #twitch-chat-embed {
+        display: none !important;
+    }
+    .streamerPage {
+        width: "100vw" !important;
+    }
 }

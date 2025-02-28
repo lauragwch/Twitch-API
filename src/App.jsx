@@ -19,7 +19,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar onSearch={setSearchQuery}/>
-        <SideMenu />
+        {/* <SideMenu /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/games" element={<GamesPage />}/>

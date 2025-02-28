@@ -2,7 +2,7 @@ import axios from "axios";
 import { TOKEN } from "../config";
 
 function fetchStreamers() {
-    return axios.get("https://api.twitch.tv/helix/streams?first=100", {
+    return axios.get("https://api.twitch.tv/helix/streams?first=20", {
         headers: {
           'Authorization': `Bearer ` + TOKEN,
           'Client-ID': 'by9gj34dxacttetmnaz3w0m3bqdbkw',
@@ -12,7 +12,7 @@ function fetchStreamers() {
 }
 
 function fetchStreamersByGame(gameId) {
-  return axios.get("https://api.twitch.tv/helix/streams?game_id=" + gameId, {
+  return axios.get("https://api.twitch.tv/helix/streams?game_id=" + gameId + "&first=100", {
       headers: {
         'Authorization': `Bearer `+TOKEN,
         'Client-ID': 'by9gj34dxacttetmnaz3w0m3bqdbkw',

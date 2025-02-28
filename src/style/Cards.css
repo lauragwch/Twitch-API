@@ -1,0 +1,7 @@
+.homePageCardImg:hover {
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-image: linear-gradient(to right, #262684, #800080) 1; /* Dégradé bleu-violet */
+    border-image-slice: 1;
+}
+

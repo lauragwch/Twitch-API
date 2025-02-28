@@ -1,7 +1,8 @@
 import axios from "axios";
 import { TOKEN } from "../config";
 
-function fetchGames() {
+// Récupérer les catégories les plus populaires
+function fetchTopGames() {
     return axios.get("https://api.twitch.tv/helix/games/top?first=100", {
         headers: {
           'Authorization': `Bearer ` + TOKEN,
@@ -12,5 +13,5 @@ function fetchGames() {
 }
 
 export default {
-    fetchGames
+    fetchTopGames
 }

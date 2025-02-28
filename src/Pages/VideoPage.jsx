@@ -28,7 +28,7 @@ const VideoPage = () => {
     }, [])
 
     return <>
-        <Container className="">
+        <Container className="mt-1">
             <iframe
                 style={{ width: "85%", aspectRatio: "16/9" }}
                 id="inlineFrameExample"

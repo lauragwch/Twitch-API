@@ -5,6 +5,7 @@ import StreamServices from "../Services/StreamServices"
 import UserServices from "../Services/UserServices"
 import VideoServices from "../Services/VideoServices"
 import VideoCard from "../Components/VideoCard"
+import TwitchPartner from "../assets/twitch_partner.png"
 
 const StreamerPage = () => {
 
@@ -16,7 +17,8 @@ const StreamerPage = () => {
         try {
             const response = await UserServices.fetchStreamerByUserLogin(id)
             const responseBis = await StreamServices.fetchStreamerById(response.data.data[0].id)
-            const responseTer = await  VideoServices.fetchVideoByStreamerId(response.data.data[0].id)
+            const responseTer = await VideoServices.fetchVideoByStreamerId(response.data.data[0].id)
+            console.log(responseBis)
             setStreamer({ ...response.data.data[0], ...responseBis.data.data[0] })
             setStreamerVideos(responseTer.data.data)
         } catch (error) {
@@ -41,59 +43,73 @@ const StreamerPage = () => {
     }, [id])
 
     return <>
-        <Container className="mt-4">
-            <iframe
-                style={{width: "85%", aspectRatio: "16/9"}}
-                id="inlineFrameExample"
-                title="Inline Frame Example"
-                src={"https://player.twitch.tv/?channel=" + id + "&parent=localhost"}>
-            </iframe>
-
-
-            <div className="d-flex flex-column gap-2" style={{width: "85%"}}>
-                <div className="d-flex">
-                    <div className="col-1 d-flex align-items-center p-1">
-                        <Image fluid style={{ borderRadius: "250px"}} src={streamer.profile_image_url} />
-                    </div>
-                    <div className="d-flex flex-column col-11 gap-1">
-                        <div className="d-flex justify-content-between align-items-center">
-                            <h2 style={{fontSize:"1rem"}}>{streamer.display_name}</h2>
-                            <div className="d-flex gap-2">
-                                <p>👥 {streamer.viewer_count}</p>
-                                <p>🕑 {getElapsedTime(streamer.started_at)}</p>
+        {/* <Container className="" style={{width: "100vw"}}> */}
+        <div className="d-flex">
+            <div className="d-flex flex-column streamerPage">
+                <iframe
+                    style={{ width: "100%", aspectRatio: "16/9" }}
+                    id="inlineFrameExample"
+                    title="Inline Frame Example"
+                    src={"https://player.twitch.tv/?channel=" + id + "&parent=localhost"}
+                    allowFullScreen>
+                </iframe>
+                <div className="d-flex flex-column gap-2 p-3" style={{}}>
+                    <div className="d-flex">
+                        <div className="d-flex align-items-center p-1" style={{ position: "relative", display: "inline-block" }}>
+                            <Image fluid style={{ borderRadius: "250px", maxWidth: "80px" }} src={streamer.profile_image_url} />
+                            <Button style={{ position: "absolute", fontSize: "1rem", padding: "0px 3px", left: "50%", bottom: "-5px", transform: "translateX(-50%)" }} variant="danger">LIVE</Button>
+                        </div>
+                        <div className="d-flex flex-column gap-1" style={{ flexGrow: "1", paddingLeft: "10px" }}>
+                            <div className="d-flex justify-content-between align-items-center">
+                                <div className="d-flex gap-1">
+                                    <h2 style={{ fontSize: "1rem" }}>{streamer.display_name}</h2>
+                                    {streamer.broadcaster_type && streamer.broadcaster_type == "partner" ? <Image src={TwitchPartner} style={{ aspectRatio: "1/1", width: "16px" }} alt="logo twitch partenaire" /> : null}
+                                </div>
+                                <div className="d-flex gap-2">
+                                    <p>👥 {streamer.viewer_count}</p>
+                                    <p>🕑 {getElapsedTime(streamer.started_at)}</p>
+                                </div>
+                            </div>
+                            <p style={{ fontSize: "0.9rem" }}>{streamer.title}</p>
+                            <div className="d-flex align-items-center gap-2">
+                                <p className="m-0" style={{ color: "orange" }}>{streamer.game_name}</p>
+                                <div className="d-flex align-items-center gap-2 flex-wrap">
+                                    {streamer.tags && streamer.tags.map((tag, index) => {
+                                        return <Button key={index} variant="outline-light" style={{ padding: "3px", fontSize: "0.7rem" }}>{tag}</Button>
+                                    })}
+                                </div>
                             </div>
                         </div>
-                        <p style={{fontSize:"0.9rem"}}>{streamer.title}</p>
-                        <div className="d-flex align-items-center gap-2">
-                            <p className="m-0" style={{ color: "orange" }}>{streamer.game_name}</p>
-                            <div className="d-flex align-items-center gap-2">
-                                {streamer.tags && streamer.tags.map((tag, index) => {
-                                    return <Button key={index} variant="outline-light" style={{ padding: "3px", fontSize: "0.7rem" }}>{tag}</Button>
+                    </div>
+                    <div>
+                        <h4>Concernant {streamer.display_name}</h4>
+                        <div style={{ backgroundColor: "#202020", borderRadius: "0.4rem", overflow: "hidden", textOverflow: "ellipsis" }} className="p-3">
+                            <p>{streamer.description}</p>
+                        </div>
+                    </div>
+                    {streamerVideos ? <>
+                        <div>
+                            <h4>Vidéos</h4>
+                            <div style={{ backgroundColor: "#202020", borderRadius: "0.4rem" }} className="p-3 d-flex flex-wrap justify-content-evenly">
+                                {streamerVideos && streamerVideos.map((video, index) => {
+                                    if (index != 0)
+                                        return <VideoCard key={index} video={video} streamerId={id} />
                                 })}
                             </div>
                         </div>
-                    </div>
+                    </> : null}
+
                 </div>
-                <div>
-                    <p>Concernant {streamer.display_name}</p>
-                    <div style={{backgroundColor: "#202020", borderRadius: "0.4rem"}} className="p-3">
-                        <p>{streamer.description}</p>
-                    </div>
-                </div>
-                {streamerVideos ? <>
-                    <div>
-                    <p>Vidéos</p>
-                    <div style={{backgroundColor: "#202020", borderRadius: "0.4rem"}} className="p-3 d-flex flex-wrap justify-content-evenly">
-                        {streamerVideos && streamerVideos.map((video, index) => {
-                            if (index != 0)
-                            return <VideoCard key={index} video={video} streamerId={id} />
-                        })}
-                    </div>
-                </div>
-                </> : null}
-                
             </div>
-        </Container>
+            <iframe id="twitch-chat-embed"
+                src={"https://www.twitch.tv/embed/" + id + "/chat?parent=localhost&darkpopout"}
+                style={{ height: "calc(100vh - 60px)", position: "fixed", right: "0px", overflow: "contain", borderLeft: "1px solid #444" }}
+            >
+            </iframe>
+        </div>
+
+
+        {/* </Container> */}
     </>;
 }
 

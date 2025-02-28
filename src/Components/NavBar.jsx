@@ -19,7 +19,7 @@ const NavBar = () => {
     const fetchStreamers = async () => {
         try {
             const response = await StreamServices.fetchStreamers();
-            console.log(response.data.data);
+            // console.log(response.data.data);
 
             // Je creer le tableau vide
             const optionsTab = [];
@@ -62,7 +62,7 @@ const NavBar = () => {
     };
 
     return (
-        <Navbar expand='lg' expanded={expanded} className="justify-content-center">
+        <Navbar expand='lg' expanded={expanded} className="justify-content-center fixed-top" style={{height: "60px", }}>
             <Container fluid className="d-flex justify-content-center">
                 <Navbar.Brand onClick={() => navigate('/')}>TWITCH</Navbar.Brand>
                 <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
@@ -72,6 +72,7 @@ const NavBar = () => {
                         <Nav.Link onClick={() => { navigate('/games'); setExpanded(false); }}>Jeux</Nav.Link>
                     </Nav>
 
+                    <div style={{position: "absolute", right: "calc(50% - 200px)"}}>
                     <Select
                         options={options}
                         styles={{ container: (base) => ({ ...base, width: 400 }) }}
@@ -79,8 +80,9 @@ const NavBar = () => {
                         placeholder="Rechercher un streamer..."
                         isClearable
                     />
+                    </div>
 
-                    <Nav className="ml-auto">
+                    {/* <Nav className="ml-auto">
                         <Nav.Link href="#">
                             <FaBell size={20} />
                         </Nav.Link>
@@ -90,7 +92,7 @@ const NavBar = () => {
                         <Nav.Link onClick={() => { navigate('/login'); setExpanded(false); }}>
                             <FaUser size={20} />
                         </Nav.Link>
-                    </Nav>
+                    </Nav> */}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

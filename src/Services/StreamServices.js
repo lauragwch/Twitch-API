@@ -25,7 +25,7 @@ function fetchStreamersByLanguage() {
 
 // Récupérer les streams par ID de jeu
 function fetchStreamersByGame(gameId) {
-    return axios.get("https://api.twitch.tv/helix/streams?game_id=" + gameId + "&first=10", {
+    return axios.get("https://api.twitch.tv/helix/streams?game_id=" + gameId + "&first=100", {
         headers: {
           'Authorization': `Bearer ` + TOKEN,
           'Client-ID': 'by9gj34dxacttetmnaz3w0m3bqdbkw',

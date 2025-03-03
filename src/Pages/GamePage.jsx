@@ -29,12 +29,12 @@ const GamePage = () => {
     return <>
         <Container className="mt-4">
             <div className="d-flex flex-wrap justify-content-center gap-2">
-                <h2 className="pb-2" style={{width: "100%"}}>Chaine en <span style={{color: "orange"}}>français</span></h2>
+                <h2 className="pb-2" style={{ width: "100%" }}>Chaine en <span style={{ color: "orange" }}>français</span></h2>
                 {streamers && streamers.map((streamer, index) => {
                     if (streamer.language == "fr")
-                    return <StreamerCard key={index} streamer={streamer} />
+                        return <StreamerCard key={index} streamer={streamer} />
                 })}
-                <h2 className="pb-2 pt-4" style={{width: "100%"}}>Toutes les chaines</h2>
+                <h2 className="pb-2 pt-4" style={{ width: "100%" }}>Toutes les chaines</h2>
                 {streamers && streamers.map((streamer, index) => {
                     return <StreamerCard key={index} streamer={streamer} />
                 })}

@@ -26,8 +26,6 @@ function CarouselStream() {
 
 
     return (
-
-        // <Container>
         <Carousel
             style={{maxWidth: "700px"}}
             prevIcon={<span className="carousel-control-prev-icon" aria-hidden="true" />}
@@ -44,8 +42,6 @@ function CarouselStream() {
             })
             }
         </Carousel>
-        
-        // </Container>
     );
 }
 

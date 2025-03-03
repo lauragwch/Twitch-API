@@ -30,7 +30,6 @@ const StreamerPage = () => {
         const startTime = new Date(timestamp);
         const now = new Date();
         const diff = Math.floor((now - startTime) / 1000); // Différence en secondes
-
         const hours = Math.floor((diff % (3600 * 24)) / 3600);
         const minutes = Math.floor((diff % 3600) / 60);
         const seconds = diff % 60;
@@ -43,7 +42,6 @@ const StreamerPage = () => {
     }, [id])
 
     return <>
-        {/* <Container className="" style={{width: "100vw"}}> */}
         <div className="d-flex">
             <div className="d-flex flex-column streamerPage">
                 <iframe
@@ -107,9 +105,6 @@ const StreamerPage = () => {
             >
             </iframe>
         </div>
-
-
-        {/* </Container> */}
     </>;
 }
 

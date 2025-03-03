@@ -7,6 +7,8 @@ import CarouselStream from "../Components/CarouselStream";
 import StreamerCard from "../Components/StreamerCard";
 import GameCard from "../Components/GameCard";
 
+
+//Const qui permet d'effectuer une recherche
 const HomePage = ({ searchQuery }) => {
     const [topStreams, setTopStreams] = useState([]);
     const [topGames, setTopGames] = useState([]);
@@ -23,7 +25,8 @@ const HomePage = ({ searchQuery }) => {
                 topGamesResponse,
                 recommendedResponse,
                 gameSpecificResponse
-            ] = await Promise.all([
+
+            ] = await Promise.all([ // On attend que toutes les requêtes soient terminées
                 StreamServices.fetchStreamers(), // Streams les plus regardés
                 GameServices.fetchTopGames(), // Catégories populaires
                 StreamServices.fetchStreamersByLanguage(), // Recommandés FR

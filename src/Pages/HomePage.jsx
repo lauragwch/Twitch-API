@@ -31,9 +31,9 @@ const HomePage = ({ searchQuery }) => {
             ]);
 
             setTopStreams(topStreamsResponse.data.data.slice(0, 9));
-            setTopGames(topGamesResponse.data.data.slice(0, 6));
-            setRecommendedStreams(recommendedResponse.data.data.slice(0, 3));
-            setGameSpecificStreams(gameSpecificResponse.data.data.slice(0, 3));
+            setTopGames(topGamesResponse.data.data.slice(0, 12));
+            setRecommendedStreams(recommendedResponse.data.data.slice(0, 6));
+            setGameSpecificStreams(gameSpecificResponse.data.data.slice(0, 6));
         } catch (error) {
             console.error(error);
         }
@@ -59,9 +59,9 @@ const HomePage = ({ searchQuery }) => {
 
             <Container className="mt-5">
                 {sections.map((section, index) => (
-                    <div key={index} className="mb-5">
-                        <h2 className="mb-3">{section.title}</h2>
-                        <Row xs={1} md={2} lg={3} className="g-4"> {/*pour que ce soit responsive*/}
+                    <div key={index} className="mb-5 ">
+                        <h2 className="mb-4">{section.title}</h2>
+                        <Row xs={1} md={2} lg={3} className="g-4 d-flex justify-content-center"> {/*pour que ce soit responsive*/}
                             {section.streams.map((item) => {
                                 console.log(item);
 
@@ -71,8 +71,8 @@ const HomePage = ({ searchQuery }) => {
                                 else {
                                     return <StreamerCard key={item.id} streamer={item} />
                                 }
-                            }     
-                              
+                            }
+
                             )}
                         </Row>
                     </div>

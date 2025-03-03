@@ -13,21 +13,6 @@ const SideMenu = () => {
         setIsExpanded(!isExpanded);
     };
 
-    const fetchFollowedStreams = async () => {
-        try {
-            const response = await FollowedStreamsService.fetchFollowedStreams(userId);
-            setFollowedStreams(response.data.data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    useEffect(() => {
-        // fetchFollowedStreams();
-    }
-    , []);
-
-
     return (
         <div className={`side-menu ${isExpanded ? 'expanded' : 'collapsed'}`}>
             <button className="toggle-button" onClick={toggleMenu}>

@@ -2,7 +2,6 @@
 
 
 body {
-    /* margin-left: 60px; */
     padding-top: 60px;
     background-color: #181818;
     font-family: Poppins;
@@ -98,12 +97,25 @@ li {
 
 .navbar-toggler {
     border: 1px solid #444;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.navbar-toggler:hover {
+    border: 1px solid #444;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
 }
 
 @media only screen and (min-width: 769px) {
     .streamerPage {
         width: calc(100vw - 315px) !important;
-        /* width: "calc(100vw - 315px)" !important; */
     }
 }
 

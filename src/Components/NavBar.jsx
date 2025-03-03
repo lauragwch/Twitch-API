@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Navbar, Nav, Form, FormControl, Button, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { FaSearch, FaBell, FaCommentDots, FaUser, FaCompass } from "react-icons/fa";
 import { useEffect } from "react";
 import StreamServices from "../Services/StreamServices";
 import Select from "react-select";
@@ -66,10 +65,10 @@ const NavBar = () => {
             <Container fluid className="d-flex justify-content-center">
                 <Navbar.Brand onClick={() => navigate('/')}>TWITCH</Navbar.Brand>
                 <Navbar.Toggle onClick={() => setExpanded(expanded ? false : true)} />
-                <Navbar.Collapse id='basic-navbar-nav' className="justify-content-between">
+                <Navbar.Collapse id='basic-navbar-nav' >
 
                     <Nav className=''>
-                        <Nav.Link onClick={() => { navigate('/games'); setExpanded(false); }}>Jeux</Nav.Link>
+                        <Nav.Link style={{backgroundColor: "#202020"}} className="text-center" onClick={() => { navigate('/games'); setExpanded(false); }}>Jeux</Nav.Link>
                     </Nav>
 
                     <div style={{position: "absolute", right: "calc(50% - 200px)"}}>
@@ -81,18 +80,6 @@ const NavBar = () => {
                         isClearable
                     />
                     </div>
-
-                    {/* <Nav className="ml-auto">
-                        <Nav.Link href="#">
-                            <FaBell size={20} />
-                        </Nav.Link>
-                        <Nav.Link href="#">
-                            <FaCommentDots size={20} />
-                        </Nav.Link>
-                        <Nav.Link onClick={() => { navigate('/login'); setExpanded(false); }}>
-                            <FaUser size={20} />
-                        </Nav.Link>
-                    </Nav> */}
                 </Navbar.Collapse>
             </Container>
         </Navbar>

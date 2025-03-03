@@ -43,7 +43,6 @@ li {
     display: flex;
     align-items: center;
     padding: 15px;
-    transition: background 0.2s;
 }
 
 li:hover {
@@ -69,5 +68,3 @@ a {
 .side-menu.collapsed a span {
     display: none;
 }
-
-

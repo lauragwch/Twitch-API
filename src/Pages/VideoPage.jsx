@@ -50,10 +50,9 @@ const VideoPage = () => {
                         </div>
                         <p style={{ fontSize: "0.9rem" }}>{video.title}</p>
                         <div className="d-flex align-items-center gap-2">
-                            <p className="m-0" style={{ color: "orange" }}>Rediffusion du {video.created_at ? video.created_at.split("T")[0]: null}</p>
+                            <p className="m-0" style={{ color: "orange" }}>Rediffusion du {video.created_at ? video.created_at.split("T")[0] : null}</p>
                         </div>
                     </div>
-
                 </div>
                 <div>
                     <p>Concernant {streamer.display_name}</p>
